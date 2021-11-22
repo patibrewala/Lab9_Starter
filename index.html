@@ -102,6 +102,88 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+
+    //log button
+    errorBtns[0].addEventListener('click', event => {
+      console.log("Hey! How are you?");
+    });
+
+    //error button
+    errorBtns[1].addEventListener('click', event => {
+      console.error("Somthing broke :/");
+    });
+
+    //count button
+    errorBtns[2].addEventListener('click', event => {
+      console.count("Check your count");
+    });
+
+    //warn button
+    errorBtns[3].addEventListener('click', event => {
+      console.warn("It's late! Get some sleep");
+    });
+
+    //assert button
+    errorBtns[4].addEventListener('click', event => {
+      const x = 5;
+      const y = 3;
+      const reason = 'x is expected to be less than y';
+      console.assert(x < y, {x, y, reason});
+    });
+
+    //clear button
+    errorBtns[5].addEventListener('click', event => {
+      console.clear();
+    });
+
+    //clear button
+    errorBtns[5].addEventListener('click', event => {
+      console.clear();
+    });
+
+    //dir button
+      errorBtns[6].addEventListener('click', event => {
+      console.dir(document.body);
+    });
+
+    //dirxml button
+    errorBtns[7].addEventListener('click', event => {
+      console.dirxml(document);
+    });
+
+    //group start button
+    errorBtns[8].addEventListener('click', event => {
+      console.group("group");
+    });
+
+    //group end button
+    errorBtns[9].addEventListener('click', event => {
+      console.groupEnd("group");
+    });
+
+    //table Button
+    errorBtns[10].addEventListener('click', event => {
+      console.table(["hi", "hello", "hey"]);
+    });
+
+    //start timer Button
+    errorBtns[11].addEventListener('click', event => {
+      console.time("time");
+    });
+
+    //end timer Button
+    errorBtns[12].addEventListener('click', event => {
+      console.timeEnd("time");
+    });
+
+    //trace Button
+    errorBtns[13].addEventListener('click', event => {
+      const hi = () => {hello();}; 
+        const hello =() => {hey();};
+          const hey = () => {console.trace();};
+      hi();
+    });
+
   </script>
 </body>
 
