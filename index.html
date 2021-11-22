@@ -87,13 +87,44 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "4e773bdaf9de4c119bff46236619c464"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+
   <script>
+                        
+    class InputError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "InputError";
+      }
+    }
+
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
       let output = document.querySelector('output');
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
+
+      let error = new InputError("InputError");
+      try {
+        if(firstNum === '' || secondNum === ''){
+          throw new InputError('Invalid input')
+        }
+      } 
+      catch(error) {
+        alert(error.message);
+        throw error;
+      } 
+      finally {
+        console.log("done")
+      }
+
       let operator = document.querySelector('#operator').value;
       output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
     });
@@ -102,7 +133,8 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
-
+    
+                        
     //log button
     errorBtns[0].addEventListener('click', event => {
       console.log("Hey! How are you?");
@@ -184,6 +216,11 @@
       hi();
     });
 
+    errorBtns[14].addEventListener('click', event => {
+      unassignedVariable;
+      console.log("Accessing an undefined variable");
+    });
+    TrackJS.track('Testing TrackJS!');
   </script>
 </body>
 
